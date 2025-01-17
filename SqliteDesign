@@ -1,0 +1,34 @@
+# 数据库设计
+* 计划清单表（plans）
+···
+CREATE TABLE plans (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    target TEXT,           -- 目标(O)
+    result_expectation TEXT, -- 结果期望(R)
+    stage_action TEXT,     -- 阶段行动(SA)
+    purpose TEXT,          -- 用途
+    parent_id INTEGER      -- 父级ID（用于层级关系，父级为NULL）
+);
+
+
+* 时间记录表（time_records）
+···
+CREATE TABLE time_records (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT,             -- 日期
+    start_time TEXT,       -- 开始时间
+    end_time TEXT,         -- 结束时间
+    duration REAL,         -- 耗时/h
+    note TEXT,             -- 备注内容
+    energy_state TEXT,     -- 能量状态
+    target TEXT,           -- 目标(O)
+    result_expectation TEXT, -- 结果期望(R)
+    stage_action TEXT,     -- 阶段行动(SA)
+    purpose TEXT           -- 用途
+);
+
+* energy_state
+```
+None
+
+
